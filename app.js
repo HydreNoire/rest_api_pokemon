@@ -20,4 +20,4 @@ app.get('/api/pokemons/:id', (req, res) => {
     res.json(success(message, pokemon));
 });
 
-app.listen(port, () => console.log(`Notre application Node est démarrée sur : http://localhost:${port}`));
+app.listen(port, () => console.log(`Notre application Node démarre sur : http://localhost:${port}`));
