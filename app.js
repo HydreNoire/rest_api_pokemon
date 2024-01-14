@@ -23,7 +23,8 @@ const sequelize = new Sequelize(
     }
 );
 
-
+sequelize.authenticate()
+    .then(_)
 
 app
     .use(favicon(__dirname + '/favicon.ico'))
