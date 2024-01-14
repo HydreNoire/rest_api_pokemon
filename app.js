@@ -24,7 +24,8 @@ const sequelize = new Sequelize(
 );
 
 sequelize.authenticate()
-    .then(_)
+    .then(_ => console.log(`La connexion à la base de données à bien été établie`))
+    .catch(err => console.error(`Impossible de se connecter à la base de donnée ${err}`))
 
 app
     .use(favicon(__dirname + '/favicon.ico'))
