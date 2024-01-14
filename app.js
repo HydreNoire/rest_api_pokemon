@@ -3,7 +3,7 @@ const morgan = require('morgan');
 const favicon = require('serve-favicon');
 const bodyParser = require('body-parser');
 const { success, getUniqueId } = require('./helper');
-const pokemons = require('./mock-pokemon');
+let pokemons = require('./mock-pokemon');
 
 const app = express();
 const port = 3000;
@@ -34,6 +34,16 @@ app.post('/api/pokemons', (req, res) => {
     pokemons.push(pokemonCreated)
     const message = `Le pokémon ${pokemonCreated.name} a bien été crée`;
     res.json(success(message, pokemonCreated));
+})
+
+app.put('/api/pokemons/:id', (req, res) => {
+    const pokemonId = parseInt(req.params.id);
+    const pokemonUpdated = { ...req.body, id: pokemonId };
+    pokemons = pokemons.map(pokemon => {
+        return pokemon.id === pokemonId ? pokemonUpdated : pokemon;
+    });
+    const message = `Le pokemon ${pokemonUpdated.name} a bien été modifié`;
+    res.json(success(message, pokemonUpdated));
 })
 
 app.listen(port, () => console.log(`Notre application Node démarre sur : http://localhost:${port}`));
