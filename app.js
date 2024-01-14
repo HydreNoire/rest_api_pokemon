@@ -16,4 +16,5 @@ sequelize.initDB();
 
 // Here, endpoints
 
+
 app.listen(port, () => console.log(`Notre application Node démarre sur : http://localhost:${port}`));
