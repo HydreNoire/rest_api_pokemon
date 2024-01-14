@@ -28,7 +28,8 @@ const initDB = () => {
                     cp: pokemon.cp,
                     picture: pokemon.picture,
                     types: pokemon.types.join()
-                }).then(pokemon => console.log(pokemon.toJSON()))
+                })
+                // .then(pokemon => console.log(pokemon.toJSON()))
             })
             console.log('La base de donnée à bien été initialisée')
         })
