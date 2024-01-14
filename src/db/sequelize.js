@@ -27,7 +27,7 @@ const initDB = () => {
                     hp: pokemon.hp,
                     cp: pokemon.cp,
                     picture: pokemon.picture,
-                    types: pokemon.types.join()
+                    types: pokemon.types
                 })
                 // .then(pokemon => console.log(pokemon.toJSON()))
             })
