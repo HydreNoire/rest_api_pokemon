@@ -15,11 +15,16 @@ app
 sequelize.initDB();
 
 // Here, endpoints
+// POKEMON ROUTES
 require('./src/routes/findAllPokemons')(app)
 require('./src/routes/findPokemonByPk')(app)
 require('./src/routes/createPokemon')(app)
 require('./src/routes/updatePokemon')(app)
 require('./src/routes/deletePokemon')(app)
+
+// USER ROUTES
+require('./src/routes/login')(app)
+
 
 // Handle 404 error
 app.use(({ res }) => {

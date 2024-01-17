@@ -42,5 +42,5 @@ const initDB = () => {
 }
 
 module.exports = {
-    initDB, Pokemon
+    initDB, Pokemon, User
 }
