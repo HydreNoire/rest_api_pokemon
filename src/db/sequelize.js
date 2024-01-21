@@ -40,20 +40,20 @@ const Pokemon = PokemonModel(sequelize, DataTypes);
 const User = UserModel(sequelize, DataTypes);
 
 const initDB = () => {
-    return sequelize.sync().then(_ => {
-        // pokemons.map(pokemon => {
-        //     Pokemon.create({
-        //         name: pokemon.name,
-        //         hp: pokemon.hp,
-        //         cp: pokemon.cp,
-        //         picture: pokemon.picture,
-        //         types: pokemon.types
-        //     })//.then(pokemon => console.log(pokemon.toJSON()))
-        // })
+    return sequelize.sync({ force: true }).then(_ => {
+        pokemons.map(pokemon => {
+            Pokemon.create({
+                name: pokemon.name,
+                hp: pokemon.hp,
+                cp: pokemon.cp,
+                picture: pokemon.picture,
+                types: pokemon.types
+            })//.then(pokemon => console.log(pokemon.toJSON()))
+        })
 
-        // bcrypt.hash('pikachou', 10)
-        //     .then(hash => User.create({ username: "pikachou", password: hash }))
-        //     .then(user => console.log(user.toJSON()))
+        bcrypt.hash('pikachou', 10)
+            .then(hash => User.create({ username: "pikachou", password: hash }))
+            .then(user => console.log(user.toJSON()))
 
         console.log('La base de donnée à bien été initialisée')
     })
