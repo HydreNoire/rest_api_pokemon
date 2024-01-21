@@ -4,9 +4,12 @@ let pokemons = require('./mock-pokemon');
 const UserModel = require('../models/user');
 const bcrypt = require('bcrypt');
 
-const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD,
+const sequelize = new Sequelize(
+    'pokedex',
+    'root',
+    '',
     {
-        host: process.env.DB_HOST,
+        host: 'localhost',
         dialect: 'mariadb',
         dialectOptions: {
             timezone: 'Etc/GMT-2'
@@ -14,20 +17,6 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, proces
         logging: false
     }
 );
-
-// const sequelize = new Sequelize(
-//     'pokedex',
-//     'root',
-//     '',
-//     {
-//         host: 'localhost',
-//         dialect: 'mariadb',
-//         dialectOptions: {
-//             timezone: 'Etc/GMT-2'
-//         },
-//         logging: false
-//     }
-// );
 
 const Pokemon = PokemonModel(sequelize, DataTypes);
 const User = UserModel(sequelize, DataTypes);
