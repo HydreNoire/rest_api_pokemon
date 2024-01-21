@@ -5,18 +5,32 @@ const UserModel = require('../models/user');
 const bcrypt = require('bcrypt');
 
 const sequelize = new Sequelize(
-    'pokedex',
-    'root',
-    '',
+    'pokedex_smw7',
+    'pokedex_smw7_user',
+    'VAgcNLgqjcRcZsSZF7QYfGe6UmkUlNOI',
     {
-        host: 'localhost',
-        dialect: 'mariadb',
+        host: 'dpg-cmmkacf109ks7399p2cg-a',
+        dialect: 'postgres',
         dialectOptions: {
             timezone: 'Etc/GMT-2'
         },
         logging: false
     }
 );
+
+// const sequelize = new Sequelize(
+//     'pokedex',
+//     'root',
+//     '',
+//     {
+//         host: 'localhost',
+//         dialect: 'mariadb',
+//         dialectOptions: {
+//             timezone: 'Etc/GMT-2'
+//         },
+//         logging: false
+//     }
+// );
 
 const Pokemon = PokemonModel(sequelize, DataTypes);
 const User = UserModel(sequelize, DataTypes);
