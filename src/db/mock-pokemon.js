@@ -100,7 +100,7 @@ const pokemons = [
     },
     {
         id: 12,
-        name: "Groupix",
+        name: "Goupix",
         hp: 17,
         cp: 8,
         picture: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/037.png",
