@@ -5,11 +5,11 @@ const UserModel = require('../models/user');
 const bcrypt = require('bcrypt');
 
 const sequelize = new Sequelize(
-    'pokedex',
-    'root',
-    '',
+    process.env.DB_DBNAME,
+    process.env.USERNAME,
+    process.env.PASSWORD,
     {
-        host: 'localhost',
+        host: process.env.DB_HOST,
         dialect: 'mariadb',
         dialectOptions: {
             timezone: 'Etc/GMT-2'
@@ -17,6 +17,20 @@ const sequelize = new Sequelize(
         logging: false
     }
 );
+
+// const sequelize = new Sequelize(
+//     'pokedex',
+//     'root',
+//     '',
+//     {
+//         host: 'localhost',
+//         dialect: 'mariadb',
+//         dialectOptions: {
+//             timezone: 'Etc/GMT-2'
+//         },
+//         logging: false
+//     }
+// );
 
 const Pokemon = PokemonModel(sequelize, DataTypes);
 const User = UserModel(sequelize, DataTypes);
